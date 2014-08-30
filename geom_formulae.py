@@ -1,6 +1,6 @@
 __author__ = 'bemsibom'
 
-from numbers import *
+from numbers import Number
 from math import *
 
 
