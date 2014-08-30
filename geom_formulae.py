@@ -1,6 +1,6 @@
 __author__ = 'bemsibom'
 
-from numbers import Number
+from numbers import *
 from math import *
 
 
@@ -56,13 +56,13 @@ if __name__ == "__main__":
           rhombus_area_dd(sample_diagonal1, sample_diagonal2))
 
 
-def rhombus_area_sina(side: Number, angle: Number) -> Number:
+def rhombus_area_sin(side: Number, angle: Real) -> Number:
     """
     Calculates the area of a rhombus from the length of a side and the size of any angle
     :param side: The length of a side
     :param angle: The size of the angle
     :return: The area of the rhombus
-    >>>rhombus_area_sina(4, pi/2)
+    >>>rhombus_area_sin(4, pi/2)
     16
     """
     return side**2*sin(angle)
@@ -71,7 +71,7 @@ if __name__ == "__main__":
     sampleSide = 4
     sampleAngle = pi/2
     print("Area of rhombus:",
-          rhombus_area_sina(sampleSide, sampleAngle))
+          rhombus_area_sin(sampleSide, sampleAngle))
 
 
 def parallelogram_perimeter(base_length: Number, side_length: Number) -> Number:
@@ -86,14 +86,13 @@ def parallelogram_perimeter(base_length: Number, side_length: Number) -> Number:
     return 2*(base_length + side_length)
 
 if __name__ == "__main__":
-    samplebase_length = 2
-    sampleside_length = 2
+    sample_base_length = 2
+    sample_side_length = 2
     print("Perimeter of parallelogram:",
-          parallelogram_perimeter(samplebase_length, sampleside_length))
+          parallelogram_perimeter(sample_base_length, sample_side_length))
 
 
-
-def area_regular_polygon_sd(n: Number, s: Number):
+def area_regular_polygon_sd(n: Number, s: Number) -> Number:
     """
     Calculates the area of any rectangular polygon, given the number of sides and the length of a side
     :param n: Number of sides in the polygon
@@ -111,7 +110,7 @@ if __name__ == "__main__":
           area_regular_polygon_sd(sample_n, sample_s))
 
 
-def area_regular_polygon_rad(radius: Number, n: Number):
+def area_regular_polygon_rad(radius: Number, n: Number) -> Number:
     """
     Calculates the area of any regular polygon given the circumradius and the number of sides
     :param radius: the circumradius (perpendicular distance from the center to any side)
@@ -126,9 +125,10 @@ if __name__ == "__main__":
     sample_radius = 5
     sample_n = 10
     print("Area of regular polygon:",
-           area_regular_polygon_rad(sample_radius, sample_n))
+          area_regular_polygon_rad(sample_radius, sample_n))
 
-def area_regular_polygon_apotheon(apoth: Number, n: Number):
+
+def area_regular_polygon_apotheon(apoth: Number, n: Number) -> Number:
     """
     Calculates the area of any regular polygon given the apotheon and the number of sides
     :param apoth: the apotheon of the polygon
@@ -146,7 +146,7 @@ if __name__ == "__main__":
           area_regular_polygon_apotheon(sample_apoth, sample_n))
 
 
-def area_circle(radius: Number):
+def area_circle(radius: Number) -> Number:
     """
     Calculates the area of a circle
     :param radius: the radius of the circle
@@ -162,7 +162,7 @@ if __name__ == "__main__":
           area_circle(sample_radius))
 
 
-def perimeter_circle(radius: Number):
+def perimeter_circle(radius: Number) -> Number:
     """
     Calculates the perimeter of a circle
     :param radius: the radius of the circle
@@ -170,7 +170,7 @@ def perimeter_circle(radius: Number):
     >>>perimeter_circle(5)
     31.41592653589793
     """
-    return 2*pi*radius
+    return 2 * pi * radius
 
 if __name__ == "__main__":
     sample_radius = 5
@@ -178,7 +178,7 @@ if __name__ == "__main__":
           perimeter_circle(sample_radius))
 
 
-def surface_area_cone(radius: Number, side_length: Number):
+def surface_area_cone(radius: Number, side_length: Number) -> Number:
     """
     Calculates the surface area of a cone
     :param radius: base radius
@@ -196,7 +196,7 @@ if __name__ == "__main__":
           surface_area_cone(sample_radius, sample_side_length))
 
 
-def volume_cone(radius: Number, height: Number):
+def volume_cone(radius: Number, height: Number) -> Number:
     """
     Calculates the volume of a cone
     :param radius: base radius of the cone
@@ -211,10 +211,10 @@ if __name__ == "__main__":
     sample_radius = 2
     sample_height = 5
     print("Volume of cone:",
-           volume_cone(sample_radius, sample_height))
+          volume_cone(sample_radius, sample_height))
 
 
-def surface_area_cylinder(radius: Number, height: Number):
+def surface_area_cylinder(radius: Number, height: Number) -> Number:
     """
     Calculates the surface area of a cylinder
     :param radius: radius of cylinder
@@ -232,7 +232,7 @@ if __name__ == "__main__":
           surface_area_cylinder(sample_radius, sample_height))
 
 
-def volume_cylinder(radius: Number, height: Number):
+def volume_cylinder(radius: Number, height: Number) -> Number:
     """
     Calculates the volume of a cylinder
     :param radius: radius of the cylinder
@@ -250,7 +250,7 @@ if __name__ == "__main__":
           volume_cylinder(sample_radius, sample_height))
 
 
-def surface_area_pyramid(base: Number, height: Number):
+def surface_area_pyramid(base: Number, height: Number) -> Number:
     """
     Calculates the surface area of a square-based pyramid
     :param base: side of base
@@ -268,7 +268,7 @@ if __name__ == "__main__":
           surface_area_pyramid(sample_base, sample_height))
 
 
-def volume_pyramid(base: Number, height: Number):
+def volume_pyramid(base: Number, height: Number) -> Number:
     """
     Calculates the volume of a square-based pyramid
     :param base: side of base
@@ -285,7 +285,8 @@ if __name__ == "__main__":
     print("Volume of pyramid: ",
           volume_pyramid(sample_base, sample_height))
 
-def surface_area_triangular_prism(base: Number, height: Number, length: Number):
+
+def surface_area_triangular_prism(base: Number, height: Number, length: Number) -> Number:
     """
     Calculates the surface area of and isosceles triangular prism
     :param base: triangle base
@@ -305,7 +306,7 @@ if __name__ == "__main__":
           surface_area_triangular_prism(sample_base, sample_height, sample_length))
 
 
-def volume_triangular_prism(base: Number, height: Number, length: Number):
+def volume_triangular_prism(base: Number, height: Number, length: Number) -> Number:
     """
     Calculates the volume of an isosceles triangular prism
     :param base: triangle base
@@ -325,7 +326,7 @@ if __name__ == "__main__":
           volume_triangular_prism(sample_base, sample_height, sample_length))
 
 
-def area_circle_sector(theta: Number, radius: Number):
+def area_circle_sector(theta: Real, radius: Number) -> Real:
     """
     Calculates the area of a sector of a circle from its radius and sector angle
     :param theta: angle of sector
@@ -343,7 +344,7 @@ if __name__ == "__main__":
           area_circle_sector(sample_theta, sample_radius))
 
 
-def surface_area_icosahedron(side: Number):
+def surface_area_icosahedron(side: Number) -> Number:
     """
     Calculates the surface area of an icosahedron from the length of its side
     :param side: length of one side
@@ -359,7 +360,7 @@ if __name__ == "__main__":
           surface_area_icosahedron(sample_side))
 
 
-def volume_icosahedron(side: Number):
+def volume_icosahedron(side: Number) -> Number:
     """
     Calculates the volume of an icosahedron from the length of its side
     :param side: length of one side
