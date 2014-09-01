@@ -187,7 +187,7 @@ def plot_icosahedron(sidemax: Number):
     show()
 
 if __name__ == "__main__":
-    plot_triangular_icosahedron(5)
+    plot_icosahedron(5)
 
 
 
