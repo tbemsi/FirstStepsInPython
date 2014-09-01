@@ -190,7 +190,24 @@ if __name__ == "__main__":
     plot_triangular_prism(5)
 
 
-    #plotting area of icosahedron
+def plot_volume_triangular_prism_2d(base, height):
+
+    length = 25
+    x = arange(-base, base, 0.1)
+    y = arange(-height, height, 0.1)
+    X, Y = meshgrid(x, y)
+    Z = volume_triangular_prism(X, Y, length)
+
+    im = imshow(Z, cmap=cm.RdBu)
+    cset = contour(Z, arange(-1, 1.5, 0.2), linewidths=2, cmap=cm.Set2)
+    clabel(cset, inline=True, fmt='%1.1f', fontsize=10)
+    colorbar(im)
+    title('Variation of volume of triangular prism with base and height')
+    show()
+
+if __name__ == "__main__":
+    plot_volume_triangular_prism_2d(5, 5)
+
 
 def plot_icosahedron(sidemax: Number):
     """
