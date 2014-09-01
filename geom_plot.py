@@ -148,39 +148,46 @@ if __name__ == "__main__":
     plot_pyramid(5)
 
     #plotting properties of triangular prism
+
+def plot_triangular_prism(base_max: Number):
     v_surface_area_triangular_prism = vectorize(surface_area_triangular_prism)
     v_volume_triangular_prism = vectorize(volume_triangular_prism)
-    base_max = 20
     height = 10
     length = 5
 
     base = linspace(0, base_max, 100)
-    A = v_surface_area_triangular_prism(base, height, length)
-    V = v_volume_triangular_prism(base, height, length)
+    a = v_surface_area_triangular_prism(base, height, length)
+    v = v_volume_triangular_prism(base, height, length)
 
-    plot(base, A, '-g', label='Surface Area')
-    plot(base, V, '-r', label='Volume')
+    plot(base, a, '-g', label='Surface Area')
+    plot(base, v, '-r', label='Volume')
     xlabel('base')
     title('Variation of surface area and volume of a triangular prism with base length')
     savefig('/home/bemsibom/PycharmProjects/Figures/Prism_properties.png')
     show()
 
-    #plotting area of circle sector
+if __name__ == "__main__":
+    plot_triangular_prism(5)
+
 
     #plotting area of icosahedron
+
+def plot_icosahedron(sidemax: Number):
     v_surface_area_icosahedron = vectorize(surface_area_icosahedron)
     v_volume_icosahedron = vectorize(volume_icosahedron)
 
-    sidemax = 5
     side = linspace(0, sidemax)
-    A = v_surface_area_icosahedron(side)
-    V = v_volume_icosahedron(side)
+    a = v_surface_area_icosahedron(side)
+    v = v_volume_icosahedron(side)
 
-    plot(side, A, '-g', label='Surface Area')
-    plot(side, V, '-r', label='Volume')
+    plot(side, a, '-g', label='Surface Area')
+    plot(side, v, '-r', label='Volume')
     title('Variation of surface area and volume of icosahedron with side length')
     savefig('/home/bemsibom/PycharmProjects/Figures/Icosahedron_properties.png')
     show()
+
+if __name__ == "__main__":
+    plot_triangular_icosahedron(5)
 
 
 
