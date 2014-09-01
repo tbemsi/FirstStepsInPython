@@ -9,7 +9,7 @@ def rhombus_perimeter(side: Number) -> Number:
     Calculate perimeter of a rhombus from side length.
     :param side: the side length
     :return: the perimeter (same units as side length)
-    >>>rhombus_perimeter(4)
+    >>> rhombus_perimeter(4)
     16
     """
     return 4*side
@@ -44,8 +44,8 @@ def rhombus_area_dd(diagonal1: Number, diagonal2: Number) -> Number:
     :param diagonal1: The length of the first diagonal
     :param diagonal2: The length of the second diagonal
     :return: The are of the rhombus
-    >>>rhombus_area_dd(4, 6)
-    12
+    >>> rhombus_area_dd(4, 6)
+    12.0
     """
     return (diagonal1*diagonal2)/2
 
@@ -62,8 +62,8 @@ def rhombus_area_sin(side: Number, angle: Number) -> Number:
     :param side: The length of a side
     :param angle: The size of the angle
     :return: The area of the rhombus
-    >>>rhombus_area_sin(4, pi/2)
-    16
+    >>> rhombus_area_sin(4, pi/2)
+    16.0
     """
     return side**2*sin(angle)
 
@@ -80,7 +80,7 @@ def parallelogram_perimeter(base_length: Number, side_length: Number) -> Number:
     :param base_length: the base length of the parallelogram
     :param side_length: the side length of the parallelogram
     :return:The perimeter of the parallelogram
-    >>>parallelogram_perimeter(2, 2)
+    >>> parallelogram_perimeter(2, 2)
     8
     """
     return 2*(base_length + side_length)
@@ -98,7 +98,7 @@ def area_regular_polygon_sd(n: Number, s: Number) -> Number:
     :param n: Number of sides in the polygon
     :param s: length of a side in the polygon
     :return:The area of the polygon
-    >>>area_regular_polygon_sd(10, 2)
+    >>> area_regular_polygon_sd(10, 2)
     30.776835371752536
     """
     return s**2*n/(4*tan(radians(180/n)))
@@ -116,7 +116,7 @@ def area_regular_polygon_rad(radius: Number, n: Number) -> Number:
     :param radius: the circumradius (perpendicular distance from the center to any side)
     :param n: number of sides
     :return: the are of the polygon
-    >>>area_regular_polygon_rad(5, 10)
+    >>> area_regular_polygon_rad(5, 10)
     73.47315653655915
     """
     return (radius**2*n*sin(radians(360/n)))/2
@@ -134,7 +134,7 @@ def area_regular_polygon_apotheon(apoth: Number, n: Number) -> Number:
     :param apoth: the apotheon of the polygon
     :param n: the number of sides the polygon has
     :return:the area of the polygon
-    >>>area_regular_polygon_apotheon(5, 10)
+    >>> area_regular_polygon_apotheon(5, 10)
     81.22992405822657
     """
     return apoth**2*n*tan(radians(180/n))
@@ -151,7 +151,7 @@ def area_circle(radius: Number) -> Number:
     Calculates the area of a circle
     :param radius: the radius of the circle
     :return:The area of the circle
-    >>>area_circle(5)
+    >>> area_circle(5)
     78.53981633974483
     """
     return pi*radius**2
@@ -167,7 +167,7 @@ def perimeter_circle(radius: Number) -> Number:
     Calculates the perimeter of a circle
     :param radius: the radius of the circle
     :return: The perimeter of the circle
-    >>>perimeter_circle(5)
+    >>> perimeter_circle(5)
     31.41592653589793
     """
     return 2 * pi * radius
@@ -184,7 +184,7 @@ def surface_area_cone(radius: Number, side_length: Number) -> Number:
     :param radius: base radius
     :param side_length: length of the side
     :return: Surface area of the cone
-    >>>surface_area_cone(5,5)
+    >>> surface_area_cone(5,5)
     157.07963267948966
     """
     return pi*(radius*side_length + radius**2)
@@ -202,7 +202,7 @@ def volume_cone(radius: Number, height: Number) -> Number:
     :param radius: base radius of the cone
     :param height: height of cone
     :return:Volume of the cone
-    >>>volume_cone(2,5)
+    >>> volume_cone(2,5)
     20.943951023931955
     """
     return pi*radius**2*height/3
@@ -220,7 +220,7 @@ def surface_area_cylinder(radius: Number, height: Number) -> Number:
     :param radius: radius of cylinder
     :param height: height of cylinder
     :return:Surface area of the cylinder
-    >>>surface_area_cylinder(2, 5)
+    >>> surface_area_cylinder(2, 5)
     87.96459430051421
     """
     return 2*pi*(radius**2 + radius*height)
@@ -238,7 +238,7 @@ def volume_cylinder(radius: Number, height: Number) -> Number:
     :param radius: radius of the cylinder
     :param height: height of cylinder
     :return:Area of cylinder
-    >>>volume_cylinder(2, 5)
+    >>> volume_cylinder(2, 5)
     62.83185307179586
     """
     return pi*radius**2*height
@@ -256,7 +256,7 @@ def surface_area_pyramid(base: Number, height: Number) -> Number:
     :param base: side of base
     :param height: height of pyramid
     :return:Surface area of pyramid
-    >>>surface_area_pyramid(2,2)
+    >>> surface_area_pyramid(2,2)
     12
     """
     return 2*base*height + base**2
@@ -274,7 +274,7 @@ def volume_pyramid(base: Number, height: Number) -> Number:
     :param base: side of base
     :param height: height of pyramid
     :return: volume of pyramid
-    >>>volume_pyramid(2,2)
+    >>> volume_pyramid(2,2)
     2.6666666666666665
     """
     return base**2*height/3
@@ -293,7 +293,7 @@ def surface_area_triangular_prism(base: Number, height: Number, length: Number) 
     :param height: triangle height
     :param length: length of prism
     :return:Surface area of the prism
-    >>>surface_area_triangular_prism(2, 2, 2)
+    >>> surface_area_triangular_prism(2, 2, 2)
     16
     """
     return base*height + 2*length*height + length*base
@@ -313,7 +313,7 @@ def volume_triangular_prism(base: Number, height: Number, length: Number) -> Num
     :param height: triangle height
     :param length: length of prism
     :return:Surface area of the prism
-    >>>volume_triangular_prism(2,3,5)
+    >>> volume_triangular_prism(2,3,5)
     15.0
     """
     return base*height*length/2
@@ -332,7 +332,7 @@ def area_circle_sector(theta: Number, radius: Number) -> Number:
     :param theta: angle of sector
     :param radius: radius of circle
     :return:The area of the sector
-    >>>area_circle_sector(pi, 5)
+    >>> area_circle_sector(pi, 5)
     39.269908169872416
     """
     return theta*radius**2/2
@@ -349,7 +349,7 @@ def surface_area_icosahedron(side: Number) -> Number:
     Calculates the surface area of an icosahedron from the length of its side
     :param side: length of one side
     :return: Surface area of icosahedron
-    >>>surface_area_icosahedron(5)
+    >>> surface_area_icosahedron(5)
     216.50635094610965
     """
     return 5*sqrt(3)*side**2
@@ -365,7 +365,7 @@ def volume_icosahedron(side: Number) -> Number:
     Calculates the volume of an icosahedron from the length of its side
     :param side: length of one side
     :return: The volume of the icosahedron
-    >>>volume_icosahedron(5)
+    >>> volume_icosahedron(5)
     272.71187382811405
     """
     return side**3*5*(3+sqrt(5))/12
