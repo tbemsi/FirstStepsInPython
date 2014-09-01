@@ -5,10 +5,13 @@ import pylab
 import numpy as np
 from geom_formulae import *
 
-#plotting properties of a rhombus
-
 
 def plot_rhombus(side):
+    """
+    Plots geometric parameters of a rhombus as functions of side length
+    :param side: side length
+    :return: plot of geometric properties of rhombus
+    """
     v_rhombus_perimeter = vectorize(rhombus_perimeter)
     v_rhombus_area_bh = vectorize(rhombus_area_bh)
 
@@ -28,10 +31,13 @@ def plot_rhombus(side):
 if __name__ == "__main__":
     plot_rhombus(5)
 
-#plotting area of a regular polygon, varying length of sides
-
 
 def plot_regular_polygon(side):
+    """
+    plot parameters of regular polygon given side length
+    :param side: side length
+    :return: Area of polygon
+    """
     v_area_regular_polygon_sd = vectorize(area_regular_polygon_sd)
 
     s = linspace(0, side)
@@ -50,13 +56,12 @@ if __name__ == "__main__":
     plot_regular_polygon(5)
 
 
-#plotting area of a regular polygon, varying number of sides
-
-
-#plotting circle parameters
-
-
 def plot_circle(radius: Number):
+    """
+    Plots geometric properties of circle as a function of radius
+    :param radius: radius length of circle
+    :return: plot of geometric properties of circle
+    """
     v_area_circle = vectorize(area_circle)
     v_perimeter_circle = vectorize(perimeter_circle)
 
@@ -73,13 +78,15 @@ def plot_circle(radius: Number):
     show()
 
 if __name__ == "__main__":
-    plot_area_circle(5)
-
-
-#plotting properties of cone
+    plot_circle(5)
 
 
 def plot_cone(radius: Number):
+    """
+    Plot geometric properties of cone with radius as dependent variable
+    :param radius: length of base radius
+    :return: Plot of geometric properties of cone
+    """
     v_surface_area_cone = vectorize(surface_area_cone)
     v_volume_cone = vectorize(volume_cone)
 
@@ -103,18 +110,22 @@ if __name__ == "__main__":
     #plotting properties of cylinders
 
 
-def plot_cylinder(radius: Number):
+def plot_cylinder(rmax: Number):
+    """
+    Plots geometric properties of cylinder against base radius
+    :param radius: length of radius
+    :return: Plot of geometric properties of cylinder
+    """
     v_surface_area_cylinder = vectorize(surface_area_cylinder)
     v_volume_cylinder = vectorize(volume_cylinder)
 
-    rmax = 50
     height = 5
     radius = linspace(0, rmax, 100)
-    A = v_surface_area_cylinder(radius, height)
-    V = v_volume_cylinder(radius, height)
+    a = v_surface_area_cylinder(radius, height)
+    v = v_volume_cylinder(radius, height)
 
-    plot(radius, A, '-b', label='Surface Area')
-    plot(radius, V, '-r', label='Volume')
+    plot(radius, a, '-b', label='Surface Area')
+    plot(radius, v, '-r', label='Volume')
     legend(loc='upper right')
     xlabel('Radius')
     title('Variation of geometrical properties of cylinders with radius')
@@ -124,10 +135,13 @@ def plot_cylinder(radius: Number):
 if __name__ == "__main__":
     plot_cone(5)
 
-    #plotting properties of pyramid
-
 
 def plot_pyramid(base_max: Number):
+    """
+    Plots geometric properties of pyramid as function of base side length
+    :param base_max: base side length
+    :return: Plot of geometric properties of pyramid
+    """
     v_surface_area_pyramid = vectorize(surface_area_pyramid)
     v_volume_pyramid = vectorize(volume_pyramid)
 
@@ -149,7 +163,13 @@ if __name__ == "__main__":
 
     #plotting properties of triangular prism
 
+
 def plot_triangular_prism(base_max: Number):
+    """
+    Plots geometric properties of a triangular prism against side length of base
+    :param base_max: side length of base
+    :return: Plot of geometric properties of triangular prism
+    """
     v_surface_area_triangular_prism = vectorize(surface_area_triangular_prism)
     v_volume_triangular_prism = vectorize(volume_triangular_prism)
     height = 10
@@ -173,6 +193,11 @@ if __name__ == "__main__":
     #plotting area of icosahedron
 
 def plot_icosahedron(sidemax: Number):
+    """
+    Plots geometric properties of icosahedron against the length of its side
+    :param sidemax: length of side
+    :return:Plot of geometric properties of icosahedron
+    """
     v_surface_area_icosahedron = vectorize(surface_area_icosahedron)
     v_volume_icosahedron = vectorize(volume_icosahedron)
 
