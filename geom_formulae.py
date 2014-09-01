@@ -56,7 +56,7 @@ if __name__ == "__main__":
           rhombus_area_dd(sample_diagonal1, sample_diagonal2))
 
 
-def rhombus_area_sin(side: Number, angle: Real) -> Number:
+def rhombus_area_sin(side: Number, angle: Number) -> Number:
     """
     Calculates the area of a rhombus from the length of a side and the size of any angle
     :param side: The length of a side
@@ -326,7 +326,7 @@ if __name__ == "__main__":
           volume_triangular_prism(sample_base, sample_height, sample_length))
 
 
-def area_circle_sector(theta: Real, radius: Number) -> Real:
+def area_circle_sector(theta: Number, radius: Number) -> Number:
     """
     Calculates the area of a sector of a circle from its radius and sector angle
     :param theta: angle of sector
