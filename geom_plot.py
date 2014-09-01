@@ -32,6 +32,30 @@ if __name__ == "__main__":
     plot_rhombus(5)
 
 
+def plot_area_rhombus_2d(side, height):
+    """
+    Plots volume of rhombus as a function of side length and height
+    :param side: side length
+    :param height: height of rhombus
+    :return:
+    """
+
+    x = arange(-side, side, 0.1)
+    y = arange(-height, height, 0.1)
+    X, Y = meshgrid(x, y)
+    Z = rhombus_area_bh(X, Y)
+
+    im = imshow(Z, cmap=cm.RdBu)
+    cset = contour(Z, arange(-1, 1.5, 0.2), linewidths=2, cmap=cm.Set2)
+    clabel(cset, inline=True, fmt='%1.1f', fontsize=10)
+    colorbar(im)
+    title('Variation of area of rhombus with base and height')
+    show()
+
+if __name__ == "__main__":
+    plot_area_rhombus_2d(5, 5)
+
+
 def plot_regular_polygon(side):
     """
     plot parameters of regular polygon given side length
@@ -107,7 +131,28 @@ if __name__ == "__main__":
     plot_cone(5)
 
 
-    #plotting properties of cylinders
+def plot_surface_area_cone_2d(radius, side):
+    """
+    Plots surface area of a cone as function of radius and side length
+    :param radius: base radius of cone
+    :param side: side length
+    :return: Plot of surface area of cone
+    """
+
+    x = arange(0, radius, 0.1)
+    y = arange(-0, side, 0.1)
+    X, Y = meshgrid(x, y)
+    Z = surface_area_cone(X, Y)
+
+    im = imshow(Z, cmap=cm.RdBu)
+    cset = contour(Z, arange(-1, 1.5, 0.2), linewidths=2, cmap=cm.Set2)
+    clabel(cset, inline=True, fmt='%1.1f', fontsize=10)
+    colorbar(im)
+    title('Variation of surface area of cone with radius and side length')
+    show()
+
+if __name__ == "__main__":
+    plot_surface_area_cone_2d(5, 5)
 
 
 def plot_cylinder(rmax: Number):
@@ -133,7 +178,31 @@ def plot_cylinder(rmax: Number):
     show()
 
 if __name__ == "__main__":
-    plot_cone(5)
+    plot_cylinder(5)
+
+
+def plot_volume_cylinder_2d(base_radius, height):
+    """
+    Plots volume of cylinder as function of base and height
+    :param base_radius: Base radius of cylinder
+    :param height: height of cylinder
+    :return: Plot of volume of cylinder as function of base and height
+    """
+    length = 25
+    x = arange(-base_radius, base_radius, 0.1)
+    y = arange(-height, height, 0.1)
+    X, Y = meshgrid(x, y)
+    Z = volume_cylinder(X, Y)
+
+    im = imshow(Z, cmap=cm.RdBu)
+    cset = contour(Z, arange(-1, 1.5, 0.2), linewidths=2, cmap=cm.Set2)
+    clabel(cset, inline=True, fmt='%1.1f', fontsize=10)
+    colorbar(im)
+    title('Variation of volume cylinder with base and height')
+    show()
+
+if __name__ == "__main__":
+    plot_volume_cylinder_2d(5, 5)
 
 
 def plot_pyramid(base_max: Number):
@@ -161,7 +230,29 @@ def plot_pyramid(base_max: Number):
 if __name__ == "__main__":
     plot_pyramid(5)
 
-    #plotting properties of triangular prism
+
+def plot_volume_pyramid_2d(base, height):
+    """
+    Plots volume of pyramid against base and height
+    :param base: base side length of pyramid
+    :param height: Height of pyramid
+    :return: Plot of volume of pyramid against base and height
+    """
+
+    x = arange(-base, base, 0.1)
+    y = arange(-height, height, 0.1)
+    X, Y = meshgrid(x, y)
+    Z = volume_pyramid(X, Y)
+
+    im = imshow(Z, cmap=cm.RdBu)
+    cset = contour(Z, arange(-1, 1.5, 0.2), linewidths=2, cmap=cm.Set2)
+    clabel(cset, inline=True, fmt='%1.1f', fontsize=10)
+    colorbar(im)
+    title('Variation of volume of pyramid with base and height')
+    show()
+
+if __name__ == "__main__":
+    plot_volume_pyramid_2d(5, 5)
 
 
 def plot_triangular_prism(base_max: Number):
