@@ -276,7 +276,7 @@ def perimeter_circle(radius: Number) -> Number:
         raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
-    sample_radius = 5
+    sample_radius = 15
     print("Perimeter of circle: ",
           perimeter_circle(sample_radius))
 
