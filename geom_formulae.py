@@ -2,6 +2,7 @@ __author__ = 'bemsibom'
 
 from numbers import Number
 from math import *
+from input_validation import *
 
 
 def rhombus_perimeter(side: Number) -> Number:
@@ -9,13 +10,24 @@ def rhombus_perimeter(side: Number) -> Number:
     Calculate perimeter of a rhombus from side length.
     :param side: the side length
     :return: the perimeter (same units as side length)
+
     >>> rhombus_perimeter(4)
     16
+
     """
-    return 4*side
+    if dim_validate_argument(side):
+        if dim_validate_number(side):
+            if dim_validate_positive(side):
+                return 4*side
+            else:
+                raise ValueError("All dimensions must be positive: "+str(side))
+        else:
+            raise TypeError("Only numerical values allowed for dimensions: "+str(side))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
-    sampleSide = 6
+    sampleSide = 4
     print("Perimeter of rhombus:",
           rhombus_perimeter(sampleSide))
 
@@ -29,11 +41,22 @@ def rhombus_area_bh(base: Number, height: Number) -> Number:
     >>> rhombus_area_bh(4,6)
     24
     """
-    return base*height
+
+    if dim_validate_argument(base) and dim_validate_argument(height):
+        if dim_validate_number(base) and dim_validate_number(height):
+            if dim_validate_positive(base) and dim_validate_positive(height):
+                return base*height
+            else:
+                raise ValueError("All dimensions must be positive: "+str(base)+str(" ")+str(height))
+        else:
+            raise TypeError("Only numerical values accepted for dimensions: "+str(base)+str(" ")+str(height))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
+
 
 if __name__ == "__main__":
     samplebase = 4
-    sampleheight = 6
+    sampleheight = 7
     print("Area: of rhombus",
           rhombus_area_bh(samplebase, sampleheight))
 
@@ -47,7 +70,17 @@ def rhombus_area_dd(diagonal1: Number, diagonal2: Number) -> Number:
     >>> rhombus_area_dd(4, 6)
     12.0
     """
-    return (diagonal1*diagonal2)/2
+
+    if dim_validate_argument(diagonal1) and dim_validate_argument(diagonal2):
+        if dim_validate_number(diagonal1) and dim_validate_number(diagonal2):
+            if dim_validate_positive(diagonal1) and dim_validate_positive(diagonal2):
+                return (diagonal1*diagonal2)/2
+            else:
+                raise ValueError("All dimensions must be positive: "+str(diagonal1)+str(" ")+str(diagonal2))
+        else:
+            raise TypeError("Only numerical values accepted for dimensions: "+str(diagonal1)+str(" ")+str(diagonal2))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
     sample_diagonal1 = 4
@@ -65,7 +98,17 @@ def rhombus_area_sin(side: Number, angle: Number) -> Number:
     >>> rhombus_area_sin(4, pi/2)
     16.0
     """
-    return side**2*sin(angle)
+
+    if dim_validate_argument(side) and dim_validate_argument(angle):
+        if dim_validate_number(side) and dim_validate_number(angle):
+            if dim_validate_positive(side) and dim_validate_positive(angle):
+                return side**2*sin(angle)
+            else:
+                raise ValueError("All dimensions must be positive: "+str(side)+str(" ")+str(angle))
+        else:
+            raise TypeError("Only numerical values accepted for dimensions: "+str(side)+str(" ")+str(angle))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
     sampleSide = 4
@@ -83,7 +126,17 @@ def parallelogram_perimeter(base_length: Number, side_length: Number) -> Number:
     >>> parallelogram_perimeter(2, 2)
     8
     """
-    return 2*(base_length + side_length)
+
+    if dim_validate_argument(base_length) and dim_validate_argument(side_length):
+        if dim_validate_number(base_length) and dim_validate_number(side_length):
+            if dim_validate_positive(base_length) and dim_validate_positive(side_length):
+                return 2*(base_length + side_length)
+            else:
+                raise ValueError("All dimensions must be positive: "+str(base_length)+str(" ")+str(side_length))
+        else:
+            raise TypeError("Only numerical values accepted for dimensions: "+str(base_length)+str(" ")+str(side_length))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
     sample_base_length = 2
@@ -101,7 +154,17 @@ def area_regular_polygon_sd(n: Number, s: Number) -> Number:
     >>> area_regular_polygon_sd(10, 2)
     30.776835371752536
     """
-    return s**2*n/(4*tan(radians(180/n)))
+
+    if dim_validate_argument(n) and dim_validate_argument(s):
+        if dim_validate_number(n) and dim_validate_number(s):
+            if dim_validate_positive(n) and dim_validate_positive(s):
+                return s**2*n/(4*tan(radians(180/n)))
+            else:
+                raise ValueError("All dimensions must be positive: "+str(n)+str(" ")+str(s))
+        else:
+            raise TypeError("Only numerical values accepted for dimensions: "+str(n)+str(" ")+str(s))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
     sample_n = 10
@@ -119,7 +182,17 @@ def area_regular_polygon_rad(radius: Number, n: Number) -> Number:
     >>> area_regular_polygon_rad(5, 10)
     73.47315653655915
     """
-    return (radius**2*n*sin(radians(360/n)))/2
+
+    if dim_validate_argument(radius) and dim_validate_argument(n):
+        if dim_validate_number(radius) and dim_validate_number(n):
+            if dim_validate_positive(radius) and dim_validate_positive(n):
+                return (radius**2*n*sin(radians(360/n)))/2
+            else:
+                raise ValueError("All dimensions must be positive: "+str(radius)+str(" ")+str(n))
+        else:
+            raise TypeError("Only numerical values accepted for dimensions: "+str(radius)+str(" ")+str(n))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
     sample_radius = 5
@@ -137,7 +210,17 @@ def area_regular_polygon_apotheon(apoth: Number, n: Number) -> Number:
     >>> area_regular_polygon_apotheon(5, 10)
     81.22992405822657
     """
-    return apoth**2*n*tan(radians(180/n))
+
+    if dim_validate_argument(apoth) and dim_validate_argument(n):
+        if dim_validate_number(apoth) and dim_validate_number(n):
+            if dim_validate_positive(apoth) and dim_validate_positive(n):
+                return apoth**2*n*tan(radians(180/n))
+            else:
+                raise ValueError("All dimensions must be positive: "+str(apoth)+str(" ")+str(n))
+        else:
+            raise TypeError("Only numerical values accepted for dimensions: "+str(apoth)+str(" ")+str(n))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
     sample_apoth = 5
@@ -154,7 +237,17 @@ def area_circle(radius: Number) -> Number:
     >>> area_circle(5)
     78.53981633974483
     """
-    return pi*radius**2
+
+    if dim_validate_argument(radius):
+        if dim_validate_number(radius):
+            if dim_validate_positive(radius):
+                return pi*radius**2
+            else:
+                raise ValueError("All dimensions must be positive: "+str(radius))
+        else:
+            raise TypeError("Only numerical values allowed for dimensions: "+str(radius))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
     sample_radius = 5
@@ -170,7 +263,17 @@ def perimeter_circle(radius: Number) -> Number:
     >>> perimeter_circle(5)
     31.41592653589793
     """
-    return 2 * pi * radius
+
+    if dim_validate_argument(radius):
+        if dim_validate_number(radius):
+            if dim_validate_positive(radius):
+                return 2 * pi * radius
+            else:
+                raise ValueError("All dimensions must be positive: "+str(radius))
+        else:
+            raise TypeError("Only numerical values allowed for dimensions: "+str(radius))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
     sample_radius = 5
@@ -187,7 +290,19 @@ def surface_area_cone(radius: Number, side_length: Number) -> Number:
     >>> surface_area_cone(5,5)
     157.07963267948966
     """
-    return pi*(radius*side_length + radius**2)
+
+    if dim_validate_argument(radius) and dim_validate_argument(side_length):
+        if dim_validate_number(radius) and dim_validate_number(side_length):
+            if dim_validate_positive(radius) and dim_validate_positive(side_length):
+                return pi*(radius*side_length + radius**2)
+            else:
+                raise ValueError("All dimensions must be positive: "+str(radius)+str(" ")+str(side_length))
+        else:
+            raise TypeError("Only numerical values accepted for dimensions: "+str(radius)+str(" ")+str(side_length))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
+
+
 
 if __name__ == "__main__":
     sample_radius = 5
@@ -205,7 +320,17 @@ def volume_cone(radius: Number, height: Number) -> Number:
     >>> volume_cone(2,5)
     20.943951023931955
     """
-    return pi*radius**2*height/3
+
+    if dim_validate_argument(radius) and dim_validate_argument(height):
+        if dim_validate_number(radius) and dim_validate_number(height):
+            if dim_validate_positive(radius) and dim_validate_positive(height):
+                return pi*radius**2*height/3
+            else:
+                raise ValueError("All dimensions must be positive: "+str(radius)+str(" ")+str(height))
+        else:
+            raise TypeError("Only numerical values accepted for dimensions: "+str(radius)+str(" ")+str(height))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
     sample_radius = 2
@@ -223,7 +348,17 @@ def surface_area_cylinder(radius: Number, height: Number) -> Number:
     >>> surface_area_cylinder(2, 5)
     87.96459430051421
     """
-    return 2*pi*(radius**2 + radius*height)
+
+    if dim_validate_argument(radius) and dim_validate_argument(height):
+        if dim_validate_number(radius) and dim_validate_number(height):
+            if dim_validate_positive(radius) and dim_validate_positive(height):
+                return 2*pi*(radius**2 + radius*height)
+            else:
+                raise ValueError("All dimensions must be positive: "+str(radius)+str(" ")+str(height))
+        else:
+            raise TypeError("Only numerical values accepted for dimensions: "+str(radius)+str(" ")+str(height))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
     sample_radius = 2
@@ -241,7 +376,17 @@ def volume_cylinder(radius: Number, height: Number) -> Number:
     >>> volume_cylinder(2, 5)
     62.83185307179586
     """
-    return pi*radius**2*height
+
+    if dim_validate_argument(radius) and dim_validate_argument(height):
+        if dim_validate_number(radius) and dim_validate_number(height):
+            if dim_validate_positive(radius) and dim_validate_positive(height):
+                return pi*radius**2*height
+            else:
+                raise ValueError("All dimensions must be positive: "+str(radius)+str(" ")+str(height))
+        else:
+            raise TypeError("Only numerical values accepted for dimensions: "+str(radius)+str(" ")+str(height))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
     sample_radius = 2
@@ -259,7 +404,17 @@ def surface_area_pyramid(base: Number, height: Number) -> Number:
     >>> surface_area_pyramid(2,2)
     12
     """
-    return 2*base*height + base**2
+
+    if dim_validate_argument(base) and dim_validate_argument(height):
+        if dim_validate_number(base) and dim_validate_number(height):
+            if dim_validate_positive(base) and dim_validate_positive(height):
+                return 2*base*height + base**2
+            else:
+                raise ValueError("All dimensions must be positive: "+str(base)+str(" ")+str(height))
+        else:
+            raise TypeError("Only numerical values accepted for dimensions: "+str(base)+str(" ")+str(height))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
     sample_base = 2
@@ -277,7 +432,17 @@ def volume_pyramid(base: Number, height: Number) -> Number:
     >>> volume_pyramid(2,2)
     2.6666666666666665
     """
-    return base**2*height/3
+
+    if dim_validate_argument(base) and dim_validate_argument(height):
+        if dim_validate_number(base) and dim_validate_number(height):
+            if dim_validate_positive(base) and dim_validate_positive(height):
+                return base**2*height/3
+            else:
+                raise ValueError("All dimensions must be positive: "+str(base)+str(" ")+str(height))
+        else:
+            raise TypeError("Only numerical values accepted for dimensions: "+str(base)+str(" ")+str(height))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
     sample_base = 2
@@ -296,7 +461,17 @@ def surface_area_triangular_prism(base: Number, height: Number, length: Number) 
     >>> surface_area_triangular_prism(2, 2, 2)
     16
     """
-    return base*height + 2*length*height + length*base
+
+    if dim_validate_argument(base) and dim_validate_argument(height) and dim_validate_argument(length):
+        if dim_validate_number(base) and dim_validate_number(height) and dim_validate_number(length):
+            if dim_validate_positive(base) and dim_validate_positive(height) and dim_validate_positive(length):
+                return base*height + 2*length*height + length*base
+            else:
+                raise ValueError("All dimensions must be positive: "+str(base)+str(" ")+str(height)+str(" ")+str(length))
+        else:
+            raise TypeError("Only numerical values accepted for dimensions: "+str(base)+str(" ")+str(height)+str(" ")+str(length))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
     sample_base = 2
@@ -316,7 +491,17 @@ def volume_triangular_prism(base: Number, height: Number, length: Number) -> Num
     >>> volume_triangular_prism(2,3,5)
     15.0
     """
-    return base*height*length/2
+
+    if dim_validate_argument(base) and dim_validate_argument(height) and dim_validate_argument(length):
+        if dim_validate_number(base) and dim_validate_number(height) and dim_validate_number(length):
+            if dim_validate_positive(base) and dim_validate_positive(height) and dim_validate_positive(length):
+                return base*height*length/2
+            else:
+                raise ValueError("All dimensions must be positive: "+str(base)+str(" ")+str(height)+str(" ")+str(length))
+        else:
+            raise TypeError("Only numerical values accepted for dimensions: "+str(base)+str(" ")+str(height)+str(" ")+str(length))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
     sample_base = 2
@@ -335,7 +520,18 @@ def area_circle_sector(theta: Number, radius: Number) -> Number:
     >>> area_circle_sector(pi, 5)
     39.269908169872416
     """
-    return theta*radius**2/2
+
+    if dim_validate_argument(theta) and dim_validate_argument(radius):
+        if dim_validate_number(theta) and dim_validate_number(radius):
+            if dim_validate_positive(theta) and dim_validate_positive(radius):
+                return theta*radius**2/2
+            else:
+                raise ValueError("All dimensions must be positive: "+str(theta)+str(" ")+str(radius))
+        else:
+            raise TypeError("Only numerical values accepted for dimensions: "+str(theta)+str(" ")+str(radius))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
+
 
 if __name__ == "__main__":
     sample_theta = pi
@@ -352,7 +548,17 @@ def surface_area_icosahedron(side: Number) -> Number:
     >>> surface_area_icosahedron(5)
     216.50635094610965
     """
-    return 5*sqrt(3)*side**2
+
+    if dim_validate_argument(side):
+        if dim_validate_number(side):
+            if dim_validate_positive(side):
+                return 5*sqrt(3)*side**2
+            else:
+                raise ValueError("All dimensions must be positive: "+str(side))
+        else:
+            raise TypeError("Only numerical values allowed for dimensions: "+str(side))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
     sample_side = 5
@@ -368,7 +574,17 @@ def volume_icosahedron(side: Number) -> Number:
     >>> volume_icosahedron(5)
     272.71187382811405
     """
-    return side**3*5*(3+sqrt(5))/12
+
+    if dim_validate_argument(side):
+        if dim_validate_number(side):
+            if dim_validate_positive(side):
+                return side**3*5*(3+sqrt(5))/12
+            else:
+                raise ValueError("All dimensions must be positive: "+str(side))
+        else:
+            raise TypeError("Only numerical values allowed for dimensions: "+str(side))
+    else:
+        raise AttributeError("Argumentation incomplete. Please input all dimensions")
 
 if __name__ == "__main__":
     sample_side = 5
