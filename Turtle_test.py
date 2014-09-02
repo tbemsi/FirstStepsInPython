@@ -3,6 +3,7 @@
 import turtle
 from turtle import *
 from numbers import Number
+from math import *
 
 
 def draw_rhombus(side: Number):
@@ -88,9 +89,9 @@ def draw_pyramid(side: Number):
     turtle.forward(side)
     turtle.left(45)
     turtle.forward(side)
-    turtle.goto(0,0)
+    turtle.goto(0, 0)
     turtle.penup()
-    turtle.goto(0,0)
+    turtle.goto(0, 0)
     turtle.pendown()
     turtle.goto(side/2, 200)
     turtle.penup()
@@ -106,11 +107,40 @@ def draw_pyramid(side: Number):
     turtle.pendown()
     turtle.goto(side/2, 200)
     turtle.done()
-    show()
 
 if __name__ == "__main__":
     draw_pyramid(100)
 
 
+def draw_figures(area: Number):
+    """
+    Plots figures of the same area
+    :param area: Area of figures
+    :return:Plot of figures
+    """
+    begin_fill()
+    turtle.right(45)
+    turtle.forward(sqrt(area))
+    turtle.right(90)
+    turtle.forward(sqrt(area))
+    turtle.right(90)
+    turtle.forward(sqrt(area))
+    turtle.right(90)
+    turtle.forward(sqrt(area))
+    i = 0
+    while (i < 4):
+        turtle.forward(sqrt(area))
+        turtle.left(90)
+        i = i+1
+    turtle.circle(sqrt(area/pi))
+    turtle.forward(sqrt(2*area))
+    turtle.left(135)
+    turtle.forward(sqrt(2)*sqrt(2*area))
+    turtle.left(135)
+    turtle.forward(sqrt(2*area))
 
+    turtle.done()
+
+if __name__ == "__main__":
+    draw_figures(10000)
 

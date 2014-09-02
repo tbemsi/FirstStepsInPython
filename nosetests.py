@@ -7,8 +7,8 @@ from nose.tools import *
 def test_rhombus_perimeter_int():
     assert rhombus_perimeter(1) == 4
     assert rhombus_perimeter(4) == 16
-    s = 5
-    assert rhombus_perimeter(s*2) == 2*rhombus_perimeter(s)
+    s = 3
+    assert rhombus_perimeter(s*2) == 4*rhombus_perimeter(s/2)
 
 
 eps = 1e-6
