@@ -87,7 +87,7 @@ def dim_validate_int_float(dim):
     >>> dim_validate(pi)
     False
     """
-    return isinstance(dim, float) or isintance(dim, int)
+    return isinstance(dim, float) or isinstance(dim, int)
 
 
 def validate_function(f: callable):

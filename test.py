@@ -3,17 +3,13 @@ from scipy.misc import *
 from math import *
 from numpy import *
 
-
-def findFib(n):
-    first, last = 0, 1
+def power_digit(n):
+    number = str(2**n)
     sum = 0
-    while last <= n:
-        temp = last
-        last += first
-        first = temp
-        #if last % 2 == 0:
-        sum = +last
-    return sum
+    for i in range(len(number)):
+        sum += int(number[i])
+    return [0]*n
 
 if __name__ == "__main__":
-    print(findFib(3))
+    n_ex = 1001
+    print(power_digit(2))
