@@ -2,7 +2,8 @@ __author__ = 'bemsibom'
 
 from math import *
 from numbers import Number
-
+import types
+import functools
 
 def dim_validate_number(dim):
     """
@@ -57,3 +58,41 @@ def dim_validate_argument(dim1):
     if dim1 is not None:
         return True
 
+def dim_validate_float(dim):
+    """
+    Test if dim is a floating point integer .
+
+    >>> dim_validate(5)
+    True
+
+    >>> dim_validate("a")
+    False
+
+    >>> dim_validate(pi)
+    False
+    """
+    return isinstance(dim, float)
+
+
+def dim_validate_int_float(dim):
+    """
+    Test if dim is a floating point integer .
+
+    >>> dim_validate(5)
+    True
+
+    >>> dim_validate("a")
+    False
+
+    >>> dim_validate(pi)
+    False
+    """
+    return isinstance(dim, float) or isintance(dim, int)
+
+
+def validate_function(f: callable):
+    """
+    Tests if f is a function
+
+    """
+    return isinstance(f, (types.FunctionType, types.BuiltinFunctionType, functools.partial))
