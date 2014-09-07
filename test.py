@@ -1,15 +1,11 @@
 __author__ = 'bemsibom'
-from scipy.misc import *
-from math import *
-from numpy import *
 
-def power_digit(n):
-    number = str(2**n)
-    sum = 0
-    for i in range(len(number)):
-        sum += int(number[i])
-    return [0]*n
+anumber = None
 
-if __name__ == "__main__":
-    n_ex = 1001
-    print(power_digit(2))
+while anumber != -1:
+    try:
+        anumber = int(input("enter an integer, -1 to stop:"))
+    except (TypeError, ValueError) as err:
+        print(err.args[0])
+    else:
+        print("success", anumber)5
